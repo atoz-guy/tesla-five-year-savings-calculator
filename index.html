@@ -55,20 +55,23 @@ function calc() {
   const cumulative = years.map(y => Math.round(annualSavings * y));
   const yearsToTarget = annualSavings > 0 ? (teslaPrice / annualSavings) : Infinity;
 
-  document.getElementById('cards').innerHTML = `
-    <div style="background: var(--surface-1); border-radius: var(--radius); padding: 1rem;">
-      <p style="font-size: 13px; color: var(--text-secondary); margin: 0 0 2px;">Gas car, per year</p>
-      <p style="font-size: 24px; font-weight: 500; margin: 0;">$${gasCarTotal.toLocaleString()}</p>
-    </div>
-    <div style="background: var(--surface-1); border-radius: var(--radius); padding: 1rem;">
-      <p style="font-size: 13px; color: var(--text-secondary); margin: 0 0 2px;">You'd save per year</p>
-      <p style="font-size: 24px; font-weight: 500; margin: 0; color: var(--text-success);">$${annualSavings.toLocaleString()}</p>
-    </div>
-    <div style="background: var(--surface-1); border-radius: var(--radius); padding: 1rem; grid-column: span 2;">
-      <p style="font-size: 13px; color: var(--text-secondary); margin: 0 0 2px;">Years of savings to cover a new Tesla</p>
-      <p style="font-size: 24px; font-weight: 500; margin: 0;">${isFinite(yearsToTarget) ? yearsToTarget.toFixed(1) : '—'} years</p>
-    </div>
-  `;
+document.getElementById('cards').innerHTML = `
+  <div style="background: var(--surface-1); border-radius: var(--radius); padding: 1rem;">
+    <p style="font-size: 13px; color: var(--text-secondary); margin: 0 0 1px;">Gas car, per year</p>
+    <p style="font-size: 24px; font-weight: 500; margin: 0;">$${gasCarTotal.toLocaleString()}</p>
+  </div>
+
+  <div style="background: var(--surface-1); border-radius: var(--radius); padding: 1rem;">
+    <p style="font-size: 13px; color: var(--text-secondary); margin: 0 0 1px;">You'd save per year</p>
+    <p style="font-size: 24px; font-weight: 500; margin: 0; color: var(--text-success);">$${annualSavings.toLocaleString()}</p>
+  </div>
+
+  <div style="background: var(--surface-1); border-radius: var(--radius); padding: 1rem; grid-column: span 2;">
+    <p style="font-size: 13px; color: var(--text-secondary); margin: 0 0 1px;">Years of savings to cover a new Tesla</p>
+    <p style="font-size: 24px; font-weight: 500; margin: 0;">${isFinite(yearsToTarget) ? yearsToTarget.toFixed(1) : '—'} years</p>
+  </div>
+`;
+
 
   return {cumulative, teslaPrice};
 }
